@@ -16,7 +16,7 @@
       <span class="wordmark-main">SCRAP</span>
       <span class="wordmark-sub">NSE sector &amp; stock screen</span>
     </div>
-    <span class="pill pill-warning">Sample data — not live financials</span>
+    <span class="pill pill-warning">Mixed data — check each company's tag</span>
   </header>
 
   <main>
@@ -60,6 +60,7 @@
               <th>PE vs sector</th>
               <th>Score</th>
               <th>Read</th>
+              <th>Data</th>
             </tr>
           </thead>
           <tbody id="company-tbody"></tbody>
@@ -82,6 +83,7 @@
           <p>Final score = Profitability × 0.35 + Growth × 0.30 + Balance sheet × 0.20 + Valuation × 0.15, rounded to a whole number.</p>
           <p><strong>Bands:</strong> 70+ strong candidate · 50–69 watchlist · below 50 reject.</p>
           <p class="how-caveat">This is one generic formula for every sector. A real build would tune metrics per sector — banks, for instance, need different balance-sheet ratios than IT services companies.</p>
+          <p class="how-caveat">The three IT services companies use real, current figures from Screener.in (28 Aug 2026) — everything else is still a placeholder. Notice that TCS and HCL Technologies land in "watchlist" despite excellent profitability: at their size, revenue growth of 6–9% a year scores low against this formula's growth benchmark. That's a real limitation worth knowing, not a bug — mega-caps rarely put up small-cap growth rates, so a formula this generic under-rates them.</p>
         </div>
       </details>
     </section>

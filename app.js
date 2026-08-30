@@ -18,8 +18,9 @@ const sectors = [
 ];
 
 const companies = [
-  { name: 'Nimbus Software', sector: 'IT services', roe: 24, roce: 27, debtEquity: 0.05, revGrowth3y: 14, peVsSectorPct: -8 },
-  { name: 'Vertex Systems', sector: 'IT services', roe: 18, roce: 20, debtEquity: 0.15, revGrowth3y: 9, peVsSectorPct: 5 },
+  { name: 'Tata Consultancy Services', sector: 'IT services', roe: 51.8, roce: 63.0, debtEquity: 0.11, revGrowth3y: 6, peVsSectorPct: -6, source: 'Screener.in, 28 Aug 2026' },
+  { name: 'Infosys', sector: 'IT services', roe: 31.9, roce: 40.0, debtEquity: 0.10, revGrowth3y: 7, peVsSectorPct: -11, source: 'Screener.in, 28 Aug 2026' },
+  { name: 'HCL Technologies', sector: 'IT services', roe: 23.8, roce: 30.4, debtEquity: 0.07, revGrowth3y: 9, peVsSectorPct: 17, source: 'Screener.in, 28 Aug 2026' },
   { name: 'Meridian Bank', sector: 'Private banks', roe: 17, roce: 14, debtEquity: 0.6, revGrowth3y: 18, peVsSectorPct: -12 },
   { name: 'Kestrel Finance Bank', sector: 'Private banks', roe: 15, roce: 12, debtEquity: 0.7, revGrowth3y: 12, peVsSectorPct: 10 },
   { name: 'Aravali Chemicals', sector: 'Specialty chemicals', roe: 19, roce: 22, debtEquity: 0.3, revGrowth3y: 20, peVsSectorPct: -15 },
@@ -127,6 +128,9 @@ function renderCompanies() {
   tbody.innerHTML = list.map((c) => {
     const tier = tierFor(c.score);
     const peSign = c.peVsSectorPct > 0 ? '+' : '';
+    const dataTag = c.source
+      ? `<span class="tag tag-verified" title="${c.source}">Verified</span>`
+      : `<span class="tag tag-sample">Sample</span>`;
     return `
       <tr>
         <td>${c.name}</td>
@@ -138,6 +142,7 @@ function renderCompanies() {
         <td class="num">${peSign}${c.peVsSectorPct}%</td>
         <td><span class="badge" data-tier="${tier.tier}">${c.score}</span></td>
         <td class="read-text">${tier.label}</td>
+        <td>${dataTag}</td>
       </tr>
     `;
   }).join('');
