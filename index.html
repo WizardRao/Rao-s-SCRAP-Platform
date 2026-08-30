@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SCRAP — NSE sector & stock screen (sample)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wordmark">
+      <span class="wordmark-main">SCRAP</span>
+      <span class="wordmark-sub">NSE sector &amp; stock screen</span>
+    </div>
+    <span class="pill pill-warning">Sample data — not live financials</span>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Sector ranking</h2>
+        <p class="panel-sub">Quality × 40% + growth × 35% + timing × 25%. Click a sector to filter the screen below.</p>
+      </div>
+      <div class="table-wrap">
+        <table id="sector-table">
+          <thead>
+            <tr>
+              <th>Sector</th>
+              <th>Quality</th>
+              <th>Growth</th>
+              <th>Timing</th>
+              <th>Final score</th>
+              <th>Cycle position</th>
+            </tr>
+          </thead>
+          <tbody id="sector-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Company screen</h2>
+        <p class="panel-sub" id="company-filter-label">Showing all sectors</p>
+      </div>
+      <div class="table-wrap">
+        <table id="company-table">
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Sector</th>
+              <th>ROE %</th>
+              <th>ROCE %</th>
+              <th>Debt / equity</th>
+              <th>Revenue growth (3y)</th>
+              <th>PE vs sector</th>
+              <th>Score</th>
+              <th>Read</th>
+            </tr>
+          </thead>
+          <tbody id="company-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel panel-quiet">
+      <details>
+        <summary>How the scores are calculated</summary>
+        <div class="how-content">
+          <p><strong>Sector score</strong> = Quality × 40% + Growth × 35% + Timing × 25%. Each is a 0–100 input you supply per sector.</p>
+          <p><strong>Company score</strong> combines four sub-scores:</p>
+          <ul>
+            <li><strong>Profitability (35%)</strong> — average of (ROE ÷ 30 × 100) and (ROCE ÷ 30 × 100), each capped at 100.</li>
+            <li><strong>Growth (30%)</strong> — (3-year revenue growth ÷ 25 × 100), capped at 100.</li>
+            <li><strong>Balance sheet (20%)</strong> — 100 − (debt/equity ÷ 1.5 × 100), capped at 0–100.</li>
+            <li><strong>Valuation (15%)</strong> — 50 − (PE premium or discount vs. sector, in percentage points).</li>
+          </ul>
+          <p>Final score = Profitability × 0.35 + Growth × 0.30 + Balance sheet × 0.20 + Valuation × 0.15, rounded to a whole number.</p>
+          <p><strong>Bands:</strong> 70+ strong candidate · 50–69 watchlist · below 50 reject.</p>
+          <p class="how-caveat">This is one generic formula for every sector. A real build would tune metrics per sector — banks, for instance, need different balance-sheet ratios than IT services companies.</p>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Companies shown are placeholders with invented figures, for demonstrating the scoring mechanics only. Replace with real, verified data before drawing any conclusions. Part of the SCRAP screening framework.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

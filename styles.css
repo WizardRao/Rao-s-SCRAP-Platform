@@ -1,0 +1,227 @@
+:root {
+  --paper: #EEF0EF;
+  --panel: #F7F8F7;
+  --ink: #14181C;
+  --ink-soft: #4B5259;
+  --line: #D7DBD9;
+  --navy: #14333D;
+  --teal: #2F6F5E;
+  --teal-bg: #E1EFE9;
+  --rust: #9C3B2E;
+  --rust-bg: #F6E4E0;
+  --ochre: #96701F;
+  --ochre-bg: #F5ECD8;
+  --radius: 6px;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 20px 32px;
+  background: var(--navy);
+  color: #EDEFEE;
+}
+
+.wordmark-main {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  margin-right: 10px;
+}
+
+.wordmark-sub {
+  font-size: 13px;
+  color: #AFC2C2;
+}
+
+.pill {
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.pill-warning {
+  background: rgba(255, 255, 255, 0.12);
+  color: #F0DDB8;
+}
+
+main {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 32px 24px 8px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+.panel-quiet {
+  background: transparent;
+  border: none;
+  padding: 0 4px;
+}
+
+.panel-head h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0 0 4px;
+}
+
+.panel-sub {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+}
+
+.table-wrap { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+thead th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--ink-soft);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: 10px 10px;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+tbody tr:hover { background: rgba(20, 51, 61, 0.04); }
+
+.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+.sector-link {
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 0;
+}
+
+.sector-link:hover,
+.sector-link.is-active {
+  color: var(--teal);
+  text-decoration: underline;
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 2px 10px;
+  border-radius: var(--radius);
+}
+
+.badge[data-tier="strong"] { background: var(--teal-bg); color: var(--teal); }
+.badge[data-tier="watch"] { background: var(--ochre-bg); color: var(--ochre); }
+.badge[data-tier="reject"] { background: var(--rust-bg); color: var(--rust); }
+
+.read-text { font-size: 12.5px; color: var(--ink-soft); }
+
+.cycle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 170px;
+}
+
+.cycle-track {
+  position: relative;
+  flex: 1;
+  height: 4px;
+  background: var(--line);
+  border-radius: 999px;
+}
+
+.cycle-marker {
+  position: absolute;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cycle-label { font-size: 12px; color: var(--ink-soft); white-space: nowrap; }
+
+details summary {
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 4px 0;
+}
+
+.how-content {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  padding: 12px 4px 4px;
+  max-width: 640px;
+}
+
+.how-content ul { padding-left: 20px; margin: 8px 0; }
+.how-caveat { font-style: italic; margin-top: 12px; }
+
+.footer {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 8px 24px 40px;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+@media (max-width: 720px) {
+  .topbar { padding: 16px 20px; }
+  main { padding: 24px 16px 8px; }
+  .panel { padding: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
