@@ -27,8 +27,8 @@ const companies = [
   { name: 'Solstice Specialty', sector: 'Specialty chemicals', roe: 12, roce: 14, debtEquity: 0.8, revGrowth3y: 8, peVsSectorPct: 25 },
   { name: 'Sundrop Foods', sector: 'FMCG', roe: 28, roce: 32, debtEquity: 0.1, revGrowth3y: 9, peVsSectorPct: 20 },
   { name: 'Harvest Home Foods', sector: 'FMCG', roe: 20, roce: 24, debtEquity: 0.2, revGrowth3y: 6, peVsSectorPct: 5 },
-  { name: 'Ironbridge Engineering', sector: 'Capital goods', roe: 21, roce: 23, debtEquity: 0.4, revGrowth3y: 22, peVsSectorPct: -10 },
-  { name: 'Falcon Heavy Industries', sector: 'Capital goods', roe: 14, roce: 16, debtEquity: 0.9, revGrowth3y: 15, peVsSectorPct: 8 },
+  { name: 'Larsen & Toubro', sector: 'Capital goods', roe: 15.9, roce: 14.6, debtEquity: 1.15, revGrowth3y: 16, peVsSectorPct: -30, source: 'Screener.in, 28 Aug 2026' },
+  { name: 'Cummins India', sector: 'Capital goods', roe: 30.2, roce: 39.5, debtEquity: 0.00, revGrowth3y: 16, peVsSectorPct: 30, source: 'Screener.in, 31 Aug 2026' },
   { name: 'Cascade Pharma', sector: 'Pharmaceuticals', roe: 18, roce: 20, debtEquity: 0.25, revGrowth3y: 13, peVsSectorPct: -5 },
   { name: 'Northline Labs', sector: 'Pharmaceuticals', roe: 10, roce: 11, debtEquity: 1.1, revGrowth3y: 4, peVsSectorPct: 15 },
 ];
