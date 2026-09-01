@@ -21,16 +21,16 @@ const companies = [
   { name: 'Tata Consultancy Services', sector: 'IT services', roe: 51.8, roce: 63.0, debtEquity: 0.11, revGrowth3y: 6, peVsSectorPct: -6, source: 'Screener.in, 28 Aug 2026' },
   { name: 'Infosys', sector: 'IT services', roe: 31.9, roce: 40.0, debtEquity: 0.10, revGrowth3y: 7, peVsSectorPct: -11, source: 'Screener.in, 28 Aug 2026' },
   { name: 'HCL Technologies', sector: 'IT services', roe: 23.8, roce: 30.4, debtEquity: 0.07, revGrowth3y: 9, peVsSectorPct: 17, source: 'Screener.in, 28 Aug 2026' },
-  { name: 'Meridian Bank', sector: 'Private banks', roe: 17, roce: 14, debtEquity: 0.6, revGrowth3y: 18, peVsSectorPct: -12 },
-  { name: 'Kestrel Finance Bank', sector: 'Private banks', roe: 15, roce: 12, debtEquity: 0.7, revGrowth3y: 12, peVsSectorPct: 10 },
-  { name: 'Aravali Chemicals', sector: 'Specialty chemicals', roe: 19, roce: 22, debtEquity: 0.3, revGrowth3y: 20, peVsSectorPct: -15 },
-  { name: 'Solstice Specialty', sector: 'Specialty chemicals', roe: 12, roce: 14, debtEquity: 0.8, revGrowth3y: 8, peVsSectorPct: 25 },
-  { name: 'Sundrop Foods', sector: 'FMCG', roe: 28, roce: 32, debtEquity: 0.1, revGrowth3y: 9, peVsSectorPct: 20 },
-  { name: 'Harvest Home Foods', sector: 'FMCG', roe: 20, roce: 24, debtEquity: 0.2, revGrowth3y: 6, peVsSectorPct: 5 },
+  { name: 'HDFC Bank', sector: 'Private banks', roe: 13.6, roce: 7.02, netNpa: 0.41, revGrowth3y: 27, peVsSectorPct: -14, source: 'Screener.in, 28 Aug 2026' },
+  { name: 'ICICI Bank', sector: 'Private banks', roe: 15.9, roce: 7.18, netNpa: 0.37, revGrowth3y: 17, peVsSectorPct: 14, source: 'Screener.in, 31 Aug 2026' },
+  { name: 'SRF', sector: 'Specialty chemicals', roe: 14.3, roce: 14.6, debtEquity: 0.36, revGrowth3y: 2, peVsSectorPct: 6, source: 'Screener.in, 31 Aug 2026' },
+  { name: 'Deepak Nitrite', sector: 'Specialty chemicals', roe: 9.82, roce: 11.4, debtEquity: 0.28, revGrowth3y: 0, peVsSectorPct: -6, source: 'Screener.in, 31 Aug 2026' },
+  { name: 'Hindustan Unilever', sector: 'FMCG', roe: 31.0, roce: 28.4, debtEquity: 0.03, revGrowth3y: 2, peVsSectorPct: -27, source: 'Screener.in, 31 Aug 2026' },
+  { name: 'Nestle India', sector: 'FMCG', roe: 73.2, roce: 84.1, debtEquity: 0.08, revGrowth3y: 11, peVsSectorPct: 27, source: 'Screener.in, 28 Aug 2026' },
   { name: 'Larsen & Toubro', sector: 'Capital goods', roe: 15.9, roce: 14.6, debtEquity: 1.15, revGrowth3y: 16, peVsSectorPct: -30, source: 'Screener.in, 28 Aug 2026' },
   { name: 'Cummins India', sector: 'Capital goods', roe: 30.2, roce: 39.5, debtEquity: 0.00, revGrowth3y: 16, peVsSectorPct: 30, source: 'Screener.in, 31 Aug 2026' },
-  { name: 'Cascade Pharma', sector: 'Pharmaceuticals', roe: 18, roce: 20, debtEquity: 0.25, revGrowth3y: 13, peVsSectorPct: -5 },
-  { name: 'Northline Labs', sector: 'Pharmaceuticals', roe: 10, roce: 11, debtEquity: 1.1, revGrowth3y: 4, peVsSectorPct: 15 },
+  { name: 'Sun Pharmaceutical Industries', sector: 'Pharmaceuticals', roe: 16.0, roce: 20.5, debtEquity: 0.06, revGrowth3y: 10, peVsSectorPct: -38, source: 'Screener.in, 31 Aug 2026' },
+  { name: "Divi's Laboratories", sector: 'Pharmaceuticals', roe: 16.5, roce: 22.0, debtEquity: 0.00, revGrowth3y: 11, peVsSectorPct: 38, source: 'Screener.in, 31 Aug 2026' },
 ];
 
 function clamp(value, min, max) {
@@ -43,7 +43,19 @@ function sectorScore(sector) {
 }
 
 // Company score: four weighted sub-scores, each normalised to 0-100.
+// Banks get a variant: ROCE and debt/equity aren't meaningful for them, so
+// profitability uses ROE alone and the balance-sheet slot uses Net NPA instead.
 function companyScore(company) {
+  if (company.sector === 'Private banks') {
+    const profitability = clamp((company.roe / 18) * 100, 0, 100);
+    const growth = clamp((company.revGrowth3y / 20) * 100, 0, 100);
+    const assetQuality = clamp(100 - (company.netNpa / 3) * 100, 0, 100);
+    const valuation = clamp(50 - company.peVsSectorPct, 0, 100);
+    return Math.round(
+      profitability * 0.35 + growth * 0.30 + assetQuality * 0.20 + valuation * 0.15
+    );
+  }
+
   const roeScore = clamp((company.roe / 30) * 100, 0, 100);
   const roceScore = clamp((company.roce / 30) * 100, 0, 100);
   const profitability = (roeScore + roceScore) / 2;
@@ -137,7 +149,7 @@ function renderCompanies() {
         <td class="read-text">${c.sector}</td>
         <td class="num">${c.roe}</td>
         <td class="num">${c.roce}</td>
-        <td class="num">${c.debtEquity.toFixed(2)}</td>
+        <td class="num">${c.sector === 'Private banks' ? c.netNpa + '% NPA' : c.debtEquity.toFixed(2)}</td>
         <td class="num">${c.revGrowth3y}%</td>
         <td class="num">${peSign}${c.peVsSectorPct}%</td>
         <td><span class="badge" data-tier="${tier.tier}">${c.score}</span></td>

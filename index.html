@@ -16,7 +16,7 @@
       <span class="wordmark-main">SCRAP</span>
       <span class="wordmark-sub">NSE sector &amp; stock screen</span>
     </div>
-    <span class="pill pill-warning">Mixed data — check each company's tag</span>
+    <span class="pill pill-warning">Companies verified — sector scores still illustrative</span>
   </header>
 
   <main>
@@ -82,15 +82,16 @@
           </ul>
           <p>Final score = Profitability × 0.35 + Growth × 0.30 + Balance sheet × 0.20 + Valuation × 0.15, rounded to a whole number.</p>
           <p><strong>Bands:</strong> 70+ strong candidate · 50–69 watchlist · below 50 reject.</p>
-          <p class="how-caveat">This is one generic formula for every sector. A real build would tune metrics per sector — banks, for instance, need different balance-sheet ratios than IT services companies.</p>
-          <p class="how-caveat">The three IT services companies use real, current figures from Screener.in (28 Aug 2026) — everything else is still a placeholder. Notice that TCS and HCL Technologies land in "watchlist" despite excellent profitability: at their size, revenue growth of 6–9% a year scores low against this formula's growth benchmark. That's a real limitation worth knowing, not a bug — mega-caps rarely put up small-cap growth rates, so a formula this generic under-rates them.</p>
+          <p class="how-caveat">Banks don't fit that formula — ROCE and debt/equity aren't meaningful when deposits are 30-40x equity by design. Banks use a variant instead: Profitability from ROE alone (35%), Growth from revenue growth (30%), Asset quality from Net NPA % instead of debt/equity (20%), Valuation unchanged (15%).</p>
+          <p class="how-caveat">All 13 companies now use real, current figures from Screener.in (see each row's "Verified" tag and hover for the exact date). Sector-level Quality/Growth/Timing scores are still illustrative placeholders — real sector scoring needs macro data like market size, industry cycle position, and policy tailwinds, which is a bigger research task for a later phase.</p>
+          <p class="how-caveat">A few real findings worth noting: TCS and HCL Technologies land in "watchlist" despite excellent profitability, because mega-cap revenue growth of 6-9% scores low against this formula's growth benchmark. Both specialty chemicals picks land in "reject" — the sector's 3-year sales growth has genuinely stalled industry-wide, not a formula quirk. And Larsen & Toubro's higher leverage pulls it well below the nearly debt-free Cummins India, even though both are respected engineering names.</p>
         </div>
       </details>
     </section>
   </main>
 
   <footer class="footer">
-    <p>IT services and Capital goods companies use real, current figures (see each row's "Verified" tag for source). All other sectors are still placeholders with invented figures for demonstrating the scoring mechanics — replace them with real, verified data before drawing any conclusions. Part of the SCRAP screening framework.</p>
+    <p>All 13 companies now use real, current figures from Screener.in (see each row's "Verified" tag for source and date). Sector-level Quality/Growth/Timing scores are still illustrative placeholders, not derived from real market data yet. Part of the SCRAP screening framework.</p>
   </footer>
 
   <script src="app.js"></script>
