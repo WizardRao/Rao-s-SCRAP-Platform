@@ -18,19 +18,23 @@ const sectors = [
 ];
 
 const companies = [
-  { name: 'Tata Consultancy Services', sector: 'IT services', roe: 51.8, roce: 63.0, debtEquity: 0.11, revGrowth3y: 6, peVsSectorPct: -6, source: 'Screener.in, 28 Aug 2026' },
-  { name: 'Infosys', sector: 'IT services', roe: 31.9, roce: 40.0, debtEquity: 0.10, revGrowth3y: 7, peVsSectorPct: -11, source: 'Screener.in, 28 Aug 2026' },
-  { name: 'HCL Technologies', sector: 'IT services', roe: 23.8, roce: 30.4, debtEquity: 0.07, revGrowth3y: 9, peVsSectorPct: 17, source: 'Screener.in, 28 Aug 2026' },
+  { name: 'Tata Consultancy Services', sector: 'IT services', roe: 51.8, roce: 63.0, debtEquity: 0.11, revGrowth3y: 6, peVsSectorPct: 3, source: 'Screener.in, 28 Aug 2026' },
+  { name: 'Infosys', sector: 'IT services', roe: 31.9, roce: 40.0, debtEquity: 0.10, revGrowth3y: 7, peVsSectorPct: -3, source: 'Screener.in, 28 Aug 2026' },
+  { name: 'HCL Technologies', sector: 'IT services', roe: 23.8, roce: 30.4, debtEquity: 0.07, revGrowth3y: 9, peVsSectorPct: 28, source: 'Screener.in, 28 Aug 2026' },
+  { name: 'Ceinsys Tech', sector: 'IT services', roe: 24.8, roce: 27.5, debtEquity: 0.08, revGrowth3y: 44, peVsSectorPct: -28, source: 'Screener.in screen, 1 Sep 2026' },
   { name: 'HDFC Bank', sector: 'Private banks', roe: 13.6, roce: 7.02, netNpa: 0.41, revGrowth3y: 27, peVsSectorPct: -14, source: 'Screener.in, 28 Aug 2026' },
   { name: 'ICICI Bank', sector: 'Private banks', roe: 15.9, roce: 7.18, netNpa: 0.37, revGrowth3y: 17, peVsSectorPct: 14, source: 'Screener.in, 31 Aug 2026' },
   { name: 'SRF', sector: 'Specialty chemicals', roe: 14.3, roce: 14.6, debtEquity: 0.36, revGrowth3y: 2, peVsSectorPct: 6, source: 'Screener.in, 31 Aug 2026' },
   { name: 'Deepak Nitrite', sector: 'Specialty chemicals', roe: 9.82, roce: 11.4, debtEquity: 0.28, revGrowth3y: 0, peVsSectorPct: -6, source: 'Screener.in, 31 Aug 2026' },
-  { name: 'Hindustan Unilever', sector: 'FMCG', roe: 31.0, roce: 28.4, debtEquity: 0.03, revGrowth3y: 2, peVsSectorPct: -27, source: 'Screener.in, 31 Aug 2026' },
-  { name: 'Nestle India', sector: 'FMCG', roe: 73.2, roce: 84.1, debtEquity: 0.08, revGrowth3y: 11, peVsSectorPct: 27, source: 'Screener.in, 28 Aug 2026' },
-  { name: 'Larsen & Toubro', sector: 'Capital goods', roe: 15.9, roce: 14.6, debtEquity: 1.15, revGrowth3y: 16, peVsSectorPct: -30, source: 'Screener.in, 28 Aug 2026' },
-  { name: 'Cummins India', sector: 'Capital goods', roe: 30.2, roce: 39.5, debtEquity: 0.00, revGrowth3y: 16, peVsSectorPct: 30, source: 'Screener.in, 31 Aug 2026' },
+  { name: 'Hindustan Unilever', sector: 'FMCG', roe: 31.0, roce: 28.4, debtEquity: 0.03, revGrowth3y: 2, peVsSectorPct: -1, source: 'Screener.in, 31 Aug 2026' },
+  { name: 'Nestle India', sector: 'FMCG', roe: 73.2, roce: 84.1, debtEquity: 0.08, revGrowth3y: 11, peVsSectorPct: 74, source: 'Screener.in, 28 Aug 2026' },
+  { name: 'G M Breweries', sector: 'FMCG', roe: 12.5, roce: 18.0, debtEquity: 0.00, revGrowth3y: 8, peVsSectorPct: -72, source: 'Screener.in screen, 1 Sep 2026' },
+  { name: 'Larsen & Toubro', sector: 'Capital goods', roe: 15.9, roce: 14.6, debtEquity: 1.15, revGrowth3y: 16, peVsSectorPct: -27, source: 'Screener.in, 28 Aug 2026' },
+  { name: 'Cummins India', sector: 'Capital goods', roe: 30.2, roce: 39.5, debtEquity: 0.00, revGrowth3y: 16, peVsSectorPct: 35, source: 'Screener.in, 31 Aug 2026' },
+  { name: 'Indo Tech Transformers', sector: 'Capital goods', roe: 28.4, roce: 37.7, debtEquity: 0.01, revGrowth3y: 28, peVsSectorPct: -8, source: 'Screener.in screen, 31 Aug 2026', redFlag: '80% promoter pledge' },
   { name: 'Sun Pharmaceutical Industries', sector: 'Pharmaceuticals', roe: 16.0, roce: 20.5, debtEquity: 0.06, revGrowth3y: 10, peVsSectorPct: -38, source: 'Screener.in, 31 Aug 2026' },
   { name: "Divi's Laboratories", sector: 'Pharmaceuticals', roe: 16.5, roce: 22.0, debtEquity: 0.00, revGrowth3y: 11, peVsSectorPct: 38, source: 'Screener.in, 31 Aug 2026' },
+  { name: 'Jaro Institute', sector: 'Education', roe: 16.5, roce: 22.1, debtEquity: 0.02, revGrowth3y: 31, peVsSectorPct: 0, source: 'Screener.in screen, 1 Sep 2026' },
 ];
 
 function clamp(value, min, max) {
@@ -143,6 +147,9 @@ function renderCompanies() {
     const dataTag = c.source
       ? `<span class="tag tag-verified" title="${c.source}">Verified</span>`
       : `<span class="tag tag-sample">Sample</span>`;
+    const readCell = c.redFlag
+      ? `<span class="tag tag-flag" title="Not caught by this formula \u2014 red-flag checks are a future phase">\u26a0 ${c.redFlag}</span>`
+      : tier.label;
     return `
       <tr>
         <td>${c.name}</td>
@@ -153,7 +160,7 @@ function renderCompanies() {
         <td class="num">${c.revGrowth3y}%</td>
         <td class="num">${peSign}${c.peVsSectorPct}%</td>
         <td><span class="badge" data-tier="${tier.tier}">${c.score}</span></td>
-        <td class="read-text">${tier.label}</td>
+        <td class="read-text">${readCell}</td>
         <td>${dataTag}</td>
       </tr>
     `;
