@@ -72,7 +72,7 @@
       <details>
         <summary>How the scores are calculated</summary>
         <div class="how-content">
-          <p><strong>Sector score</strong> = Quality × 40% + Growth × 35% + Timing × 25%. Each is a 0–100 input you supply per sector.</p>
+          <p><strong>Sector score</strong> = Quality × 40% + Growth × 35% + Timing × 25%. As of 1 Sep 2026, all three are built from real inputs: Timing comes from each sector's actual index PE vs its own historical average (cheaper vs history scores higher). Growth comes from a real, recently published industry growth forecast (e.g. NASSCOM for IT, CRISIL for capital goods, India Ratings for bank credit). Quality is the hardest to reduce to a clean number — it's built from well-established, real sector characteristics (regulatory barriers, brand moats, cyclicality, disruption risk) run through the same scoring bands, not looked up from a single source. Treat Quality with more caution than the other two.</p>
           <p><strong>Company score</strong> combines four sub-scores:</p>
           <ul>
             <li><strong>Profitability (35%)</strong> — average of (ROE ÷ 30 × 100) and (ROCE ÷ 30 × 100), each capped at 100.</li>
@@ -88,13 +88,14 @@
           <p class="how-caveat">Indo Tech Transformers was found by actually running a growth/quality screen against Screener.in's full database — not by picking a recognizable name. It scores highest on the site (93), but 80% of its promoters' shares are pledged, a serious risk this formula doesn't check for. That gap is exactly why a forensic/red-flag layer comes after the quant screen, not instead of it — see its flag in the table instead of a plain verdict.</p>
           <p class="how-caveat">That same screen surfaced Ceinsys Tech, G M Breweries, and Jaro Institute — three companies most people wouldn't recognize, all scoring well on real numbers. Two other screen results were deliberately left out: Jindal Poly Investment isn't a real operating business (it's an investment holding company whose "growth" is just investment-gain accounting noise), and Vivid Electromech's numbers are too unstable post-IPO to trust yet. A screen finds candidates — it doesn't replace judgment on whether they're comparable at all.</p>
           <p class="how-caveat">Jaro Institute is the first company in "Education," a sector with no ranking row yet and no peer group — its valuation score defaults to neutral until there's another education company to compare it against. And once a small, very different business like G M Breweries joins a broad bucket like "FMCG," the sector's average PE swings hard, which distorts everyone else's valuation score too — a real limitation of comparing companies only against whoever else happens to already be listed under the same label.</p>
+          <p class="how-caveat">Real sector scores shifted the ranking in telling ways. Pharmaceuticals fell from mid-pack to last: its 9% growth forecast is genuinely healthy, but the sector trades 23% above its own historical valuation — a "priced for perfection" signal the placeholder version never showed. FMCG rose from last to second: modest growth, but strong brand-moat quality and a real valuation discount to its own history. Capital goods dropped from 2nd to 4th once its true valuation (fairly priced, not cheap) replaced an overly optimistic guess.</p>
         </div>
       </details>
     </section>
   </main>
 
   <footer class="footer">
-    <p>All 13 companies now use real, current figures from Screener.in (see each row's "Verified" tag for source and date). Sector-level Quality/Growth/Timing scores are still illustrative placeholders, not derived from real market data yet. Part of the SCRAP screening framework.</p>
+    <p>All 17 companies and all 6 sector scores now use real, current data (see "How the scores are calculated" for sources). Sector Quality is judgment-based rather than a single clean data lookup — treat it with more caution than Timing or Growth. Part of the SCRAP screening framework.</p>
   </footer>
 
   <script src="app.js"></script>

@@ -9,12 +9,12 @@ const preferredStages = [3, 4, 5];
 const cautionStages = [8];
 
 const sectors = [
-  { name: 'IT services', quality: 78, growth: 62, timing: 55, stage: 5 },
-  { name: 'Private banks', quality: 82, growth: 58, timing: 68, stage: 4 },
-  { name: 'Specialty chemicals', quality: 65, growth: 70, timing: 40, stage: 2 },
-  { name: 'FMCG', quality: 85, growth: 40, timing: 45, stage: 6 },
-  { name: 'Capital goods', quality: 60, growth: 75, timing: 72, stage: 5 },
-  { name: 'Pharmaceuticals', quality: 70, growth: 55, timing: 50, stage: 3 },
+  { name: 'IT services', quality: 70, growth: 31, timing: 78, stage: 4 },
+  { name: 'Private banks', quality: 80, growth: 75, timing: 58, stage: 5 },
+  { name: 'Specialty chemicals', quality: 60, growth: 60, timing: 61, stage: 3 },
+  { name: 'FMCG', quality: 80, growth: 35, timing: 70, stage: 4 },
+  { name: 'Capital goods', quality: 60, growth: 65, timing: 49, stage: 6 },
+  { name: 'Pharmaceuticals', quality: 70, growth: 45, timing: 27, stage: 7 },
 ];
 
 const companies = [
